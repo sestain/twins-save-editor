@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crash Twinsanity Save Editor</title>
+    <link rel="stylesheet" href="style.css?v=7">
+</head>
+
+<body>
+    <noscript>
+        <div style="background:#b00;color:#fff;padding:16px;text-align:center;font-weight:bold">
+            This website requires JavaScript to function properly. Please enable it in your browser.
+        </div>
+    </noscript>
+
+    <header>
+        <div class="header-inner">
+            <div class="header-top">
+                <h1>Crash Twinsanity Save Editor</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-label">Save Slots</div>
+                <div class="slot-list" id="slotList">
+                    <div class="slot-card active" data-slot="0">
+                        <div class="slot-info">
+                            <span class="slot-name">Bank 0</span>
+                            <span class="slot-status">Empty</span>
+                        </div>
+                        <div class="slot-actions">
+                            <button class="slot-btn slot-import" data-slot="0" title="Import save">&plus;</button>
+                            <button class="slot-btn slot-reset" data-slot="0" title="Reset to default">&#x21ba;</button>
+                            <button class="slot-btn slot-export" data-slot="0" title="Export save">&darr;</button>
+                            <button class="slot-btn slot-remove" data-slot="0" title="Remove save">&times;</button>
+                        </div>
+                    </div>
+                    <div class="slot-card" data-slot="1">
+                        <div class="slot-info">
+                            <span class="slot-name">Bank 1</span>
+                            <span class="slot-status">Empty</span>
+                        </div>
+                        <div class="slot-actions">
+                            <button class="slot-btn slot-import" data-slot="1" title="Import save">&plus;</button>
+                            <button class="slot-btn slot-reset" data-slot="1" title="Reset to default">&#x21ba;</button>
+                            <button class="slot-btn slot-export" data-slot="1" title="Export save">&darr;</button>
+                            <button class="slot-btn slot-remove" data-slot="1" title="Remove save">&times;</button>
+                        </div>
+                    </div>
+                    <div class="slot-card" data-slot="2">
+                        <div class="slot-info">
+                            <span class="slot-name">Bank 2</span>
+                            <span class="slot-status">Empty</span>
+                        </div>
+                        <div class="slot-actions">
+                            <button class="slot-btn slot-import" data-slot="2" title="Import save">&plus;</button>
+                            <button class="slot-btn slot-reset" data-slot="2" title="Reset to default">&#x21ba;</button>
+                            <button class="slot-btn slot-export" data-slot="2" title="Export save">&darr;</button>
+                            <button class="slot-btn slot-remove" data-slot="2" title="Remove save">&times;</button>
+                        </div>
+                    </div>
+                    <div class="slot-card" data-slot="3">
+                        <div class="slot-info">
+                            <span class="slot-name">Bank 3</span>
+                            <span class="slot-status">Empty</span>
+                        </div>
+                        <div class="slot-actions">
+                            <button class="slot-btn slot-import" data-slot="3" title="Import save">&plus;</button>
+                            <button class="slot-btn slot-reset" data-slot="3" title="Reset to default">&#x21ba;</button>
+                            <button class="slot-btn slot-export" data-slot="3" title="Export save">&darr;</button>
+                            <button class="slot-btn slot-remove" data-slot="3" title="Remove save">&times;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <label class="multi-edit-toggle">
+                    <input type="checkbox" id="multiEdit">
+                    <span>Multi-Edit</span>
+                    <small>Propagate changes to selected banks</small>
+                </label>
+                <label class="multi-edit-toggle">
+                    <input type="checkbox" id="xboxSave">
+                    <span>Xbox Save</span>
+                    <small>Enables Xbox signature header</small>
+                </label>
+            </div>
+
+            <div class="sidebar-section sidebar-actions">
+                <button id="saveZipButton" class="btn-primary sidebar-btn">Download All (.zip)</button>
+            </div>
+
+            <div class="sidebar-drop-hint" id="sidebarDropHint">
+                Drop .bin files here to load
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="container">
+                <nav class="tabs">
+                    <button class="tab active" data-tab="general">General</button>
+                    <button class="tab" data-tab="character">Character</button>
+                    <button class="tab" data-tab="progress">Progress</button>
+                    <button class="tab" data-tab="chunks">Chunks</button>
+                    <button class="tab" data-tab="options">Options</button>
+                </nav>
+
+                <div id="tab-general" class="tab-content active">
+                    <div class="grid-3">
+                        <div>
+                            <label>Lives</label>
+                            <input type="number" value="4" id="lives">
+
+                            <label>Time Played</label>
+                            <input type="number" id="timePlayed" value="0" min="0">
+                            <small id="timePlayedFormatted"></small>
+                        </div>
+
+                        <div>
+                            <label>Chunk Path</label>
+                            <input type="text" id="chunkPath" value="levels\earth\hub\beach">
+
+                            <label>Spawn ID</label>
+                            <input type="number" value="0" id="spawnId">
+                            <small><a href="https://docs.google.com/spreadsheets/d/16mfcTtNXYTC4iFUZVuN2Y-Fxj9iDHTw4QcAyvrAJFkE/" target="_blank" rel="noopener noreferrer">Chunk & Spawn Spreadsheet</a></small>
+                        </div>
+
+                        <div>
+                            <label>Current Stage</label>
+                            <select id="currentStage"></select>
+
+                            <label>Highest Stage</label>
+                            <select id="highestStage"></select>
+                        </div>
+                    </div>
+
+                    <div class="flag-row">
+                        <label class="flag"><input type="checkbox" id="statsflag0"> Stats flag 0</label>
+                        <label class="flag"><input type="checkbox" id="statsflag1"> Stats flag 1 <small>(boss arena)</small></label>
+                        <label class="flag"><input type="checkbox" id="statsflag2"> Stats flag 2</label>
+                    </div>
+                </div>
+
+                <div id="tab-character" class="tab-content">
+                    <div class="grid-3">
+                        <div>
+                            <label>Current Character</label>
+                            <select id="character">
+                                <option value="0">Crash</option>
+                                <option value="1">Cortex</option>
+                                <option value="3">Nina</option>
+                                <option value="5">Mecha</option>
+                                <option value="6">None</option>
+                            </select>
+
+                            <label>Character State</label>
+                            <select id="characterState"></select>
+
+                            <label class="flag"><input type="checkbox" id="characterUnk"> Unknown character flag</label>
+                        </div>
+
+                        <div>
+                            <label>Collab State</label>
+                            <select id="collabMove"></select>
+
+                            <label class="flag"><input type="checkbox" id="activebosshud"> Boss HUD Active <small>(game sets this sometimes)</small></label>
+                        </div>
+
+                        <div>
+                            <div class="flag-group">
+                                <label class="flag"><input type="checkbox" id="collabFlag0"> Collab flag 0</label>
+                                <label class="flag"><input type="checkbox" id="collabFlag1"> Collab flag 1</label>
+                                <label class="flag"><input type="checkbox" id="collabUnk"> Unknown collab flag</label>
+                                <label class="flag"><input type="checkbox" id="collabUnk2"> Unknown2 collab flag</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-progress" class="tab-content">
+                    <div class="progress-actions">
+                        <button id="maxProgress" class="btn-secondary">Unlock Everything</button>
+                        <button id="clearProgress" class="btn-secondary">Clear Progress</button>
+                        <div class="progress-pct">
+                            <label>Completion %</label>
+                            <select id="percentage"></select>
+                        </div>
+                    </div>
+                    <div id="progressContainer" class="progress-grid"></div>
+                </div>
+
+                <div id="tab-chunks" class="tab-content">
+                    <div class="chunks-actions">
+                        <button id="removeAllChunks" class="btn-secondary">Remove All</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Path</th>
+                                <th>Flags</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="chunksTable">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="tab-options" class="tab-content">
+                    <div class="grid-3">
+                        <div>
+                            <label>Effects Volume</label>
+                            <input type="number" min="0" max="10" value="10" id="effectVolume">
+
+                            <label>Music Volume</label>
+                            <input type="number" min="0" max="10" value="10" id="musicVolume">
+
+                            <label>Sound Output</label>
+                            <select id="soundOutput">
+                                <option value="0">Mono</option>
+                                <option value="1" selected>Stereo</option>
+                                <option value="2">Dolby</option>
+                            </select>
+                            <small id="soundOutputNotice" hidden>Ignored by Xbox version.</small>
+                        </div>
+
+                        <div>
+                            <label>Screen Offset X</label>
+                            <input type="number" min="-1" max="1" step="0.01" value="0" id="screenOffsetX">
+
+                            <label>Screen Offset Y</label>
+                            <input type="number" min="-1" max="1" step="0.01" value="0" id="screenOffsetY">
+                            <small id="screenOffsetNotice" hidden>Ignored by Xbox version.</small>
+                        </div>
+
+                        <div>
+                            <label class="flag"><input type="checkbox" id="widescreen"> Widescreen</label>
+                            <label class="flag"><input type="checkbox" id="vibration"> Vibration</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        Made by <a href="https://github.com/sestain" target="_blank" rel="noopener noreferrer">Sestain</a>
+    </footer>
+
+    <script src="js/jszip.min.js"></script>
+    <script src="js/parser.js"></script>
+    <script src="js/writer.js"></script>
+    <script src="js/checksum.js"></script>
+    <script src="js/metadata-writer.js"></script>
+    <script src="js/app.js?v=7"></script>
+</body>
+
+</html>
