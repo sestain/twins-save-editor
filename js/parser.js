@@ -5,7 +5,7 @@ function parseSave(buffer) {
     const decoder = new TextDecoder();
 
     // Xbox saves have a 20-byte signature header.
-    const xboxSave = view.getUint8(0x2A) === 0;
+    const xboxSave = buffer.byteLength === 0xF414;
     const base = xboxSave ? HEADER_SIZE : 0;
 
     let offset = base;
