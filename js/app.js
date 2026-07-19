@@ -658,7 +658,7 @@ function readUI(save) {
     save.collab.move = collabMove.selectedIndex;
     save.collab.unk2 = collabUnk2.checked;
 
-    save.character.current = character.selectedIndex;
+    save.character.current = Number(character.value);
     save.character.state = characterState.selectedIndex;
     save.character.unk = characterUnk.checked;
 
