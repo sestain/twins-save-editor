@@ -241,9 +241,10 @@ const gemLabels = ["Crystal", "Yellow Gem", "Red Gem", "Purple Gem", "Green Gem"
 const gemKeys = ["crystal", "yellow", "red", "purple", "green", "clear", "blue"];
 
 function populateSelect(select, items) {
-    items.forEach(name => {
+    items.forEach((name, i) => {
         const option = document.createElement("option");
         option.textContent = name;
+        option.value = i;
         select.appendChild(option);
     });
 }
@@ -266,7 +267,7 @@ populateSelect(chunkPathSelect, listOfChunks);
 chunkPathCustom.value = "";
 
 chunkPathSelect.addEventListener("change", () => {
-    const isCustom = chunkPathSelect.value === "custom";
+    const isCustom = chunkPathSelect.value === String(listOfChunks.indexOf("custom"));
     chunkPathCustom.hidden = !isCustom;
     if (isCustom) {
         chunkPathCustom.focus();
@@ -307,6 +308,39 @@ document.getElementById("clearProgress").addEventListener("click", () => {
     progressContainer
         .querySelectorAll('input[type="checkbox"]')
         .forEach(checkbox => checkbox.checked = false);
+});
+
+progressContainer.addEventListener("change", (e) => {
+    if (e.target.type !== "checkbox") return;
+    const card = e.target.closest(".level-card");
+    if (!card) return;
+    const cards = [...progressContainer.querySelectorAll(".level-card")];
+    const levelIdx = cards.indexOf(card);
+    if (levelIdx === -1) return;
+    const gemIdx = [...card.querySelectorAll('input[type="checkbox"]')].indexOf(e.target);
+    if (gemIdx === -1) return;
+    const key = gemKeys[gemIdx];
+    const checked = e.target.checked;
+
+    if (multiEdit.checked) {
+        const targets = selectedBanks.map((sel, i) => sel ? i : -1).filter(i => i >= 0);
+        targets.forEach(i => {
+            const s = saves[i];
+            if (!s || !s.progress[levelIdx]) return;
+            if (key === "crystal")
+                s.progress[levelIdx].crystal = checked;
+            else
+                s.progress[levelIdx].gems[key] = checked;
+        });
+    } else {
+        const s = saves[activeSlot];
+        if (s && s.progress[levelIdx]) {
+            if (key === "crystal")
+                s.progress[levelIdx].crystal = checked;
+            else
+                s.progress[levelIdx].gems[key] = checked;
+        }
+    }
 });
 
 function createInputElement(type, value, className) {
@@ -488,7 +522,7 @@ const fieldMap = {
     statsflag2: (s, v) => { s.stats.flag2 = v; },
     currentStage: (s, v) => { s.stageData.id = clamp(Number(v), 0, stages.length - 1); },
     highestStage: (s, v) => { s.stageData.highestid = clamp(Number(v), 0, stages.length - 1); },
-    chunkPath: (s, v) => { s.chunkPath = v === "custom" ? chunkPathCustom.value : v; },
+    chunkPath: (s, v) => { s.chunkPath = Number(v) === listOfChunks.indexOf("custom") ? chunkPathCustom.value : listOfChunks[Number(v)]; },
     chunkPathCustom: (s, v) => { s.chunkPath = v; },
     spawnId: (s, v) => { s.spawnId = clamp(Number(v) || 0, -1, 32767); },
     timePlayed: (s, v) => { s.timePlayed = Math.max(0, Number(v) || 0); },
@@ -620,7 +654,7 @@ function applySaveToUI(save) {
         chunkPathSelect.selectedIndex = matchIdx;
         chunkPathCustom.hidden = true;
     } else {
-        chunkPathSelect.value = "custom";
+        chunkPathSelect.value = listOfChunks.indexOf("custom");
         chunkPathCustom.hidden = false;
         chunkPathCustom.value = save.chunkPath;
     }
@@ -672,7 +706,8 @@ function readUI(save) {
 
     save.timePlayed = Math.max(0, Number(timePlayed.value) || 0);
 
-    save.chunkPath = chunkPathSelect.value === "custom" ? chunkPathCustom.value : chunkPathSelect.value;
+    const customIdx = listOfChunks.indexOf("custom");
+    save.chunkPath = Number(chunkPathSelect.value) === customIdx ? chunkPathCustom.value : listOfChunks[Number(chunkPathSelect.value)];
     save.spawnId = clamp(Number(spawnId.value) || 0, -1, 32767);
 
     save.options.screenOffsetX = Number(screenOffsetX.value);
@@ -705,30 +740,6 @@ function readUIFromTabs() {
 const slotCards = document.querySelectorAll(".slot-card");
 const sidebar = document.getElementById("sidebar");
 const multiEdit = document.getElementById("multiEdit");
-
-currentStage.addEventListener("change", () => {
-    const val = clamp(currentStage.selectedIndex, 0, stages.length - 1);
-    if (multiEdit.checked) {
-        const targets = selectedBanks.map((sel, i) => sel ? i : -1).filter(i => i >= 0);
-        targets.forEach(i => { if (saves[i]) saves[i].stageData.id = val; });
-    } else {
-        const s = saves[activeSlot];
-        if (s) s.stageData.id = val;
-    }
-    updateSlotUI();
-});
-
-highestStage.addEventListener("change", () => {
-    const val = clamp(highestStage.selectedIndex, 0, stages.length - 1);
-    if (multiEdit.checked) {
-        const targets = selectedBanks.map((sel, i) => sel ? i : -1).filter(i => i >= 0);
-        targets.forEach(i => { if (saves[i]) saves[i].stageData.highestid = val; });
-    } else {
-        const s = saves[activeSlot];
-        if (s) s.stageData.highestid = val;
-    }
-    updateSlotUI();
-});
 
 function updateSlotUI() {
     slotCards.forEach((card, i) => {
@@ -1141,13 +1152,18 @@ document.querySelector(".main-content").addEventListener("change", e => {
 
 function syncField(el) {
     const fieldId = el.id;
-    if (!fieldId) return;
+    if (!fieldId || !fieldMap[fieldId]) return;
+
+    const val = getFieldValue(el);
+
+    if (saves[activeSlot]) {
+        fieldMap[fieldId](saves[activeSlot], val);
+    }
 
     if (multiEdit.checked) {
-        const val = getFieldValue(el);
         const targets = selectedBanks.map((sel, i) => sel ? i : -1).filter(i => i >= 0);
         targets.forEach(i => {
-            if (saves[i] && fieldMap[fieldId]) fieldMap[fieldId](saves[i], val);
+            if (saves[i]) fieldMap[fieldId](saves[i], val);
         });
 
         if (!modifiedFields.has(fieldId)) {
