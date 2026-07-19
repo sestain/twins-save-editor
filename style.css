@@ -271,6 +271,40 @@ body.dragging-files .sidebar-drop-hint {
     text-align: center;
 }
 
+.dropdown-wrapper {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,.4);
+    z-index: 100;
+    overflow: hidden;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 12px;
+    border: none;
+    background: none;
+    color: var(--text-2);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background: var(--border);
+    color: var(--text);
+}
+
 .multi-edit-toggle {
     display: flex;
     align-items: center;

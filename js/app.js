@@ -96,138 +96,141 @@ const characterStates = [
     "unknown3"
 ];
 
-const listOfChunks = [
-    "levels\\altearth\\core\\afttreas",
-    "levels\\altearth\\core\\corea",
-    "levels\\altearth\\core\\coreb",
-    "levels\\altearth\\core\\corec",
-    "levels\\altearth\\core\\cored",
-    "levels\\altearth\\core\\pretreas",
-    "levels\\altearth\\core\\throne",
-    "levels\\altearth\\core\\treasure",
-    "levels\\altearth\\hub\\alta",
-    "levels\\altearth\\hub\\altdoc",
-    "levels\\altearth\\hub\\altdoc_b",
-    "levels\\altearth\\hub\\altdoc_c",
-    "levels\\altearth\\hub\\alttunl",
-    "levels\\altearth\\hub\\coreent",
-    "levels\\altearth\\hub\\slipjoin",
-    "levels\\altearth\\lab\\altlabin",
-    "levels\\altearth\\lab\\labext",
-    "levels\\altearth\\lab\\psycho",
-    "levels\\altearth\\lab\\ptcorr",
-    "levels\\altearth\\lab\\ptexit",
-    "levels\\altearth\\rockslid\\l10chasa",
-    "levels\\altearth\\rockslid\\l10chasb",
-    "levels\\altearth\\rockslid\\l10end",
-    "levels\\altearth\\rockslid\\l10roids",
-    "levels\\altearth\\rockslid\\l10start",
-    "levels\\earth\\cavern\\antfight",
-    "levels\\earth\\cavern\\cavbridg",
-    "levels\\earth\\cavern\\cavent",
-    "levels\\earth\\cavern\\cavrnend",
-    "levels\\earth\\cavern\\cortthro",
-    "levels\\earth\\cavern\\cryscave",
-    "levels\\earth\\cavern\\escape",
-    "levels\\earth\\cavern\\nitrocav",
-    "levels\\earth\\cavern\\tunnel01",
-    "levels\\earth\\cavern\\tunnel02",
-    "levels\\earth\\cavern\\tunnel03",
-    "levels\\earth\\docamok\\docamok1",
-    "levels\\earth\\docamok\\docamok2",
-    "levels\\earth\\docamok\\docamok3",
-    "levels\\earth\\docamok\\docamok4",
-    "levels\\earth\\hub\\beach",
-    "levels\\earth\\hub\\bossarea",
-    "levels\\earth\\hub\\docent",
-    "levels\\earth\\hub\\highpath",
-    "levels\\earth\\hub\\huba",
-    "levels\\earth\\hub\\hubb",
-    "levels\\earth\\hub\\hubboat1",
-    "levels\\earth\\hub\\hubboat2",
-    "levels\\earth\\hub\\hubc",
-    "levels\\earth\\hub\\hubd",
-    "levels\\earth\\hub\\pier",
-    "levels\\earth\\hub\\totemex",
-    "levels\\earth\\totem\\l03beach",
-    "levels\\earth\\totem\\l03chase",
-    "levels\\earth\\totem\\l03creep",
-    "levels\\earth\\totem\\l03river",
-    "levels\\earth\\totem\\l03stock",
-    "levels\\ice\\highseas\\gpa01",
-    "levels\\ice\\highseas\\gpa02",
-    "levels\\ice\\highseas\\gpa03",
-    "levels\\ice\\highseas\\gpa04",
-    "levels\\ice\\highseas\\gpa05",
-    "levels\\ice\\highseas\\gpa06",
-    "levels\\ice\\highseas\\gpa07",
-    "levels\\ice\\highseas\\gpa08",
-    "levels\\ice\\highseas\\gpa09",
-    "levels\\ice\\highseas\\gpa10",
-    "levels\\ice\\highseas\\gpa11",
-    "levels\\ice\\highseas\\gpa12",
-    "levels\\ice\\hub\\airship",
-    "levels\\ice\\hub\\labext",
-    "levels\\ice\\hub\\labint",
-    "levels\\ice\\hub\\psycho",
-    "levels\\ice\\hub\\ptcorr",
-    "levels\\ice\\hub\\ptexit",
-    "levels\\ice\\hub\\shipent",
-    "levels\\ice\\hub\\slipent",
-    "levels\\ice\\iceclimb\\bergcorr",
-    "levels\\ice\\iceclimb\\bergext",
-    "levels\\ice\\iceclimb\\bergint",
-    "levels\\ice\\iceclimb\\caveent",
-    "levels\\ice\\iceclimb\\ukafight",
-    "levels\\ice\\iceclimb\\ukatrans",
-    "levels\\ice\\slipslide\\l05brawl",
-    "levels\\ice\\slipslide\\l05chasa",
-    "levels\\ice\\slipslide\\l05chasb",
-    "levels\\ice\\slipslide\\l05grind",
-    "levels\\ice\\slipslide\\l05river",
-    "levels\\ice\\slipslide\\l05roids",
-    "levels\\ice\\slipslide\\l05start",
-    "levels\\school\\boiler\\boiler_1",
-    "levels\\school\\boiler\\boiler_2",
-    "levels\\school\\boiler\\boiler_3",
-    "levels\\school\\boiler\\boiler_4",
-    "levels\\school\\boiler\\boiler_5",
-    "levels\\school\\boiler\\boiler_6",
-    "levels\\school\\boiler\\boiler_x",
-    "levels\\school\\cortex\\cogpa01",
-    "levels\\school\\cortex\\cogpa02",
-    "levels\\school\\cortex\\cogpa03",
-    "levels\\school\\cortex\\cogpa04",
-    "levels\\school\\cortex\\cogpa05",
-    "levels\\school\\cortex\\cogpa06",
-    "levels\\school\\cortex\\cogpa07",
-    "levels\\school\\cortex\\cogpa08",
-    "levels\\school\\crash\\crashent",
-    "levels\\school\\crash\\crgpa01",
-    "levels\\school\\crash\\crgpa02",
-    "levels\\school\\crash\\crgpa03",
-    "levels\\school\\crash\\crgpa04",
-    "levels\\school\\crash\\crgpa05",
-    "levels\\school\\crash\\crgpa06",
-    "levels\\school\\crash\\crgpa07",
-    "levels\\school\\crash\\crgpa08",
-    "levels\\school\\crash\\crlib",
-    "levels\\school\\madame\\ambercor",
-    "levels\\school\\madame\\amberly",
-    "levels\\school\\rooftop\\buschase",
-    "levels\\school\\rooftop\\roof01",
-    "levels\\school\\rooftop\\roof02",
-    "levels\\school\\rooftop\\roof03",
-    "levels\\school\\rooftop\\roof04",
-    "levels\\school\\rooftop\\roof05",
-    "levels\\school\\rooftop\\roofcor1",
-    "levels\\school\\rooftop\\roofcor2",
-    "levels\\school\\sch_hub\\boil2lck",
-    "levels\\school\\sch_hub\\sch_hub",
-    "levels\\school\\sch_hub\\schship",
-    "levels\\school\\sch_hub\\slk01",
-    "custom"
+const chunkData = [
+    ["levels\\altearth\\core\\afttreas", 3],
+    ["levels\\altearth\\core\\corea", 8],
+    ["levels\\altearth\\core\\coreb", 9],
+    ["levels\\altearth\\core\\corec", 9],
+    ["levels\\altearth\\core\\cored", 12],
+    ["levels\\altearth\\core\\pretreas", 2],
+    ["levels\\altearth\\core\\throne", 4],
+    ["levels\\altearth\\core\\treasure", 2],
+    ["levels\\altearth\\hub\\alta", 10],
+    ["levels\\altearth\\hub\\altdoc", 5],
+    ["levels\\altearth\\hub\\altdoc_b", 3],
+    ["levels\\altearth\\hub\\altdoc_c", 7],
+    ["levels\\altearth\\hub\\alttunl", 4],
+    ["levels\\altearth\\hub\\coreent", 5],
+    ["levels\\altearth\\hub\\slipjoin", 2],
+    ["levels\\altearth\\lab\\altlabin", 1],
+    ["levels\\altearth\\lab\\labext", 4],
+    ["levels\\altearth\\lab\\psycho", 3],
+    ["levels\\altearth\\lab\\ptcorr", 1],
+    ["levels\\altearth\\lab\\ptexit", 1],
+    ["levels\\altearth\\rockslid\\l10chasa", 5],
+    ["levels\\altearth\\rockslid\\l10chasb", 9],
+    ["levels\\altearth\\rockslid\\l10end", 5],
+    ["levels\\altearth\\rockslid\\l10roids", 8],
+    ["levels\\altearth\\rockslid\\l10start", 6],
+    ["levels\\earth\\cavern\\antfight", 9],
+    ["levels\\earth\\cavern\\cavbridg", 9],
+    ["levels\\earth\\cavern\\cavent", 4],
+    ["levels\\earth\\cavern\\cavrnend", 2],
+    ["levels\\earth\\cavern\\cortthro", 5],
+    ["levels\\earth\\cavern\\cryscave", 3],
+    ["levels\\earth\\cavern\\escape", 6],
+    ["levels\\earth\\cavern\\nitrocav", 8],
+    ["levels\\earth\\cavern\\tunnel01", 4],
+    ["levels\\earth\\cavern\\tunnel02", 7],
+    ["levels\\earth\\cavern\\tunnel03", 2],
+    ["levels\\earth\\docamok\\docamok1", 6],
+    ["levels\\earth\\docamok\\docamok2", 4],
+    ["levels\\earth\\docamok\\docamok3", 4],
+    ["levels\\earth\\docamok\\docamok4", 3],
+    ["levels\\earth\\hub\\beach", 11],
+    ["levels\\earth\\hub\\bossarea", 6],
+    ["levels\\earth\\hub\\docent", 4],
+    ["levels\\earth\\hub\\highpath", 3],
+    ["levels\\earth\\hub\\huba", 5],
+    ["levels\\earth\\hub\\hubb", 7],
+    ["levels\\earth\\hub\\hubboat1", 1],
+    ["levels\\earth\\hub\\hubboat2", 1],
+    ["levels\\earth\\hub\\hubc", 0],
+    ["levels\\earth\\hub\\hubd", 13],
+    ["levels\\earth\\hub\\pier", 4],
+    ["levels\\earth\\hub\\totemex", 7],
+    ["levels\\earth\\totem\\l03beach", 8],
+    ["levels\\earth\\totem\\l03chase", 4],
+    ["levels\\earth\\totem\\l03creep", 2],
+    ["levels\\earth\\totem\\l03river", 3],
+    ["levels\\earth\\totem\\l03stock", 9],
+    ["levels\\ice\\highseas\\gpa01", 6],
+    ["levels\\ice\\highseas\\gpa02", 1],
+    ["levels\\ice\\highseas\\gpa03", 5],
+    ["levels\\ice\\highseas\\gpa04", 3],
+    ["levels\\ice\\highseas\\gpa05", 4],
+    ["levels\\ice\\highseas\\gpa06", 3],
+    ["levels\\ice\\highseas\\gpa07", 4],
+    ["levels\\ice\\highseas\\gpa08", 3],
+    ["levels\\ice\\highseas\\gpa09", 2],
+    ["levels\\ice\\highseas\\gpa10", 11],
+    ["levels\\ice\\highseas\\gpa11", 2],
+    ["levels\\ice\\highseas\\gpa12", 2],
+    ["levels\\ice\\hub\\airship", 1],
+    ["levels\\ice\\hub\\labext", 17],
+    ["levels\\ice\\hub\\labint", 4],
+    ["levels\\ice\\hub\\psycho", 3],
+    ["levels\\ice\\hub\\ptcorr", 1],
+    ["levels\\ice\\hub\\ptexit", 1],
+    ["levels\\ice\\hub\\shipent", 10],
+    ["levels\\ice\\hub\\slipent", 3],
+    ["levels\\ice\\iceclimb\\bergcorr", 2],
+    ["levels\\ice\\iceclimb\\bergext", 9],
+    ["levels\\ice\\iceclimb\\bergint", 10],
+    ["levels\\ice\\iceclimb\\caveent", 4],
+    ["levels\\ice\\iceclimb\\ukafight", 8],
+    ["levels\\ice\\iceclimb\\ukatrans", 7],
+    ["levels\\ice\\slipslide\\l05brawl", 4],
+    ["levels\\ice\\slipslide\\l05chasa", 4],
+    ["levels\\ice\\slipslide\\l05chasb", 1],
+    ["levels\\ice\\slipslide\\l05grind", 6],
+    ["levels\\ice\\slipslide\\l05river", 10],
+    ["levels\\ice\\slipslide\\l05roids", 6],
+    ["levels\\ice\\slipslide\\l05start", 6],
+    ["levels\\school\\boiler\\boiler_1", 7],
+    ["levels\\school\\boiler\\boiler_2", 3],
+    ["levels\\school\\boiler\\boiler_3", 3],
+    ["levels\\school\\boiler\\boiler_4", 4],
+    ["levels\\school\\boiler\\boiler_5", 4],
+    ["levels\\school\\boiler\\boiler_6", 5],
+    ["levels\\school\\boiler\\boiler_x", 5],
+    ["levels\\school\\cortex\\cogpa01", 4],
+    ["levels\\school\\cortex\\cogpa02", 3],
+    ["levels\\school\\cortex\\cogpa03", 6],
+    ["levels\\school\\cortex\\cogpa04", 1],
+    ["levels\\school\\cortex\\cogpa05", 1],
+    ["levels\\school\\cortex\\cogpa06", 7],
+    ["levels\\school\\cortex\\cogpa07", 3],
+    ["levels\\school\\cortex\\cogpa08", 1],
+    ["levels\\school\\crash\\crashent", 3],
+    ["levels\\school\\crash\\crgpa01", 2],
+    ["levels\\school\\crash\\crgpa02", 2],
+    ["levels\\school\\crash\\crgpa03", 3],
+    ["levels\\school\\crash\\crgpa04", 2],
+    ["levels\\school\\crash\\crgpa05", 3],
+    ["levels\\school\\crash\\crgpa06", 2],
+    ["levels\\school\\crash\\crgpa07", 2],
+    ["levels\\school\\crash\\crgpa08", 3],
+    ["levels\\school\\crash\\crlib", 4],
+    ["levels\\school\\madame\\ambercor", 1],
+    ["levels\\school\\madame\\amberly", 1],
+    ["levels\\school\\rooftop\\buschase", 6],
+    ["levels\\school\\rooftop\\roof01", 5],
+    ["levels\\school\\rooftop\\roof02", 2],
+    ["levels\\school\\rooftop\\roof03", 5],
+    ["levels\\school\\rooftop\\roof04", 1],
+    ["levels\\school\\rooftop\\roof05", 8],
+    ["levels\\school\\rooftop\\roofcor1", 3],
+    ["levels\\school\\rooftop\\roofcor2", 2],
+    ["levels\\school\\sch_hub\\boil2lck", 2],
+    ["levels\\school\\sch_hub\\sch_hub", 12],
+    ["levels\\school\\sch_hub\\schship", 2],
+    ["levels\\school\\sch_hub\\slk01", 1],
+    ["custom", 0],
 ];
+
+const listOfChunks = chunkData.map(c => c[0]);
+const chunkSpawnCounts = Object.fromEntries(chunkData.map(c => [c[0], c[1]]));
 
 const gemLabels = ["Crystal", "Yellow Gem", "Red Gem", "Purple Gem", "Green Gem", "Clear Gem", "Blue Gem"];
 const gemKeys = ["crystal", "yellow", "red", "purple", "green", "clear", "blue"];
@@ -255,6 +258,7 @@ populateSelect(characterState, characterStates);
 const chunkPathSelect = document.getElementById("chunkPath");
 const chunkPathCustom = document.getElementById("chunkPathCustom");
 populateSelect(chunkPathSelect, listOfChunks);
+chunkPathCustom.value = "";
 
 chunkPathSelect.addEventListener("change", () => {
     const isCustom = chunkPathSelect.value === "custom";
@@ -468,7 +472,7 @@ const fieldMap = {
     statsflag2: (s, v) => { s.stats.flag2 = v; },
     currentStage: (s, v) => { s.stageData.id = clamp(Number(v), 0, stages.length - 1); },
     highestStage: (s, v) => { s.stageData.highestid = clamp(Number(v), 0, stages.length - 1); },
-    chunkPath: (s, v) => { s.chunkPath = v; },
+    chunkPath: (s, v) => { s.chunkPath = v === "custom" ? chunkPathCustom.value : v; },
     chunkPathCustom: (s, v) => { s.chunkPath = v; },
     spawnId: (s, v) => { s.spawnId = clamp(Number(v) || 0, -1, 32767); },
     timePlayed: (s, v) => { s.timePlayed = Math.max(0, Number(v) || 0); },
@@ -493,7 +497,7 @@ const fieldMap = {
 
 function getFieldValue(el) {
     if (el.type === "checkbox") return el.checked;
-    if (el.tagName === "SELECT") return el.selectedIndex;
+    if (el.tagName === "SELECT") return el.value;
     return el.value;
 }
 
@@ -1025,6 +1029,67 @@ document.getElementById("saveZipButton").addEventListener("click", async () => {
     const a = document.createElement("a");
     a.href = url;
     a.download = isXbox ? "XboxSaves.zip" : "PS2Saves.zip";
+    a.click();
+    URL.revokeObjectURL(url);
+});
+
+document.getElementById("advancedToggle").addEventListener("click", e => {
+    e.stopPropagation();
+    const panel = document.getElementById("advancedPanel");
+    panel.hidden = !panel.hidden;
+});
+
+document.addEventListener("click", e => {
+    const panel = document.getElementById("advancedPanel");
+    if (!panel.hidden && !e.target.closest(".dropdown-wrapper")) {
+        panel.hidden = true;
+    }
+});
+
+document.getElementById("generateAllChunks").addEventListener("click", async () => {
+    document.getElementById("advancedPanel").hidden = true;
+    const chunks = listOfChunks.filter(c => c !== "custom");
+    const zip = new JSZip();
+
+    for (const chunkPath of chunks) {
+        const folderPath = chunkPath.replace(/\\/g, "/");
+        const spawnCount = chunkSpawnCounts[chunkPath] ?? 1;
+
+        for (let spawn = 0; spawn < spawnCount; spawn++) {
+            const spawnFolder = spawnCount > 1 ? `/${spawn}` : "";
+
+            for (const [platform, isXbox] of [["ps2", false], ["xbox", true]]) {
+                const saveArray = [];
+                for (let i = 0; i < 4; i++) {
+                    const save = createBlankSave();
+                    save.chunkPath = chunkPath;
+                    save.spawnId = spawn;
+                    save.xboxSave = isXbox;
+                    saveArray.push(save);
+                }
+
+                for (let i = 0; i < 4; i++) {
+                    let buffer = writeSave(saveArray[i]);
+                    if (isXbox) buffer = await signXboxSave(buffer);
+                    zip.file(`${platform}/${folderPath}${spawnFolder}/Bank${i}.bin`, buffer);
+                }
+                const metaBuffer = await buildMetadata(saveArray, isXbox);
+                if (isXbox) {
+                    zip.file(`${platform}/${folderPath}${spawnFolder}/header.bin`, metaBuffer);
+                } else {
+                    zip.file(`${platform}/${folderPath}${spawnFolder}/BESLES-52568`, metaBuffer);
+                    zip.file(`${platform}/${folderPath}${spawnFolder}/BISLPM-65801`, metaBuffer);
+                    zip.file(`${platform}/${folderPath}${spawnFolder}/BASLUS-20909`, metaBuffer);
+                }
+            }
+        }
+    }
+
+    const blob = await zip.generateAsync({ type: "blob" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "AllChunkSaves.zip";
     a.click();
     URL.revokeObjectURL(url);
 });
