@@ -96,6 +96,139 @@ const characterStates = [
     "unknown3"
 ];
 
+const listOfChunks = [
+    "levels\\altearth\\core\\afttreas",
+    "levels\\altearth\\core\\corea",
+    "levels\\altearth\\core\\coreb",
+    "levels\\altearth\\core\\corec",
+    "levels\\altearth\\core\\cored",
+    "levels\\altearth\\core\\pretreas",
+    "levels\\altearth\\core\\throne",
+    "levels\\altearth\\core\\treasure",
+    "levels\\altearth\\hub\\alta",
+    "levels\\altearth\\hub\\altdoc",
+    "levels\\altearth\\hub\\altdoc_b",
+    "levels\\altearth\\hub\\altdoc_c",
+    "levels\\altearth\\hub\\alttunl",
+    "levels\\altearth\\hub\\coreent",
+    "levels\\altearth\\hub\\slipjoin",
+    "levels\\altearth\\lab\\altlabin",
+    "levels\\altearth\\lab\\labext",
+    "levels\\altearth\\lab\\psycho",
+    "levels\\altearth\\lab\\ptcorr",
+    "levels\\altearth\\lab\\ptexit",
+    "levels\\altearth\\rockslid\\l10chasa",
+    "levels\\altearth\\rockslid\\l10chasb",
+    "levels\\altearth\\rockslid\\l10end",
+    "levels\\altearth\\rockslid\\l10roids",
+    "levels\\altearth\\rockslid\\l10start",
+    "levels\\earth\\cavern\\antfight",
+    "levels\\earth\\cavern\\cavbridg",
+    "levels\\earth\\cavern\\cavent",
+    "levels\\earth\\cavern\\cavrnend",
+    "levels\\earth\\cavern\\cortthro",
+    "levels\\earth\\cavern\\cryscave",
+    "levels\\earth\\cavern\\escape",
+    "levels\\earth\\cavern\\nitrocav",
+    "levels\\earth\\cavern\\tunnel01",
+    "levels\\earth\\cavern\\tunnel02",
+    "levels\\earth\\cavern\\tunnel03",
+    "levels\\earth\\docamok\\docamok1",
+    "levels\\earth\\docamok\\docamok2",
+    "levels\\earth\\docamok\\docamok3",
+    "levels\\earth\\docamok\\docamok4",
+    "levels\\earth\\hub\\beach",
+    "levels\\earth\\hub\\bossarea",
+    "levels\\earth\\hub\\docent",
+    "levels\\earth\\hub\\highpath",
+    "levels\\earth\\hub\\huba",
+    "levels\\earth\\hub\\hubb",
+    "levels\\earth\\hub\\hubboat1",
+    "levels\\earth\\hub\\hubboat2",
+    "levels\\earth\\hub\\hubc",
+    "levels\\earth\\hub\\hubd",
+    "levels\\earth\\hub\\pier",
+    "levels\\earth\\hub\\totemex",
+    "levels\\earth\\totem\\l03beach",
+    "levels\\earth\\totem\\l03chase",
+    "levels\\earth\\totem\\l03creep",
+    "levels\\earth\\totem\\l03river",
+    "levels\\earth\\totem\\l03stock",
+    "levels\\ice\\highseas\\gpa01",
+    "levels\\ice\\highseas\\gpa02",
+    "levels\\ice\\highseas\\gpa03",
+    "levels\\ice\\highseas\\gpa04",
+    "levels\\ice\\highseas\\gpa05",
+    "levels\\ice\\highseas\\gpa06",
+    "levels\\ice\\highseas\\gpa07",
+    "levels\\ice\\highseas\\gpa08",
+    "levels\\ice\\highseas\\gpa09",
+    "levels\\ice\\highseas\\gpa10",
+    "levels\\ice\\highseas\\gpa11",
+    "levels\\ice\\highseas\\gpa12",
+    "levels\\ice\\hub\\airship",
+    "levels\\ice\\hub\\labext",
+    "levels\\ice\\hub\\labint",
+    "levels\\ice\\hub\\psycho",
+    "levels\\ice\\hub\\ptcorr",
+    "levels\\ice\\hub\\ptexit",
+    "levels\\ice\\hub\\shipent",
+    "levels\\ice\\hub\\slipent",
+    "levels\\ice\\iceclimb\\bergcorr",
+    "levels\\ice\\iceclimb\\bergext",
+    "levels\\ice\\iceclimb\\bergint",
+    "levels\\ice\\iceclimb\\caveent",
+    "levels\\ice\\iceclimb\\ukafight",
+    "levels\\ice\\iceclimb\\ukatrans",
+    "levels\\ice\\slipslide\\l05brawl",
+    "levels\\ice\\slipslide\\l05chasa",
+    "levels\\ice\\slipslide\\l05chasb",
+    "levels\\ice\\slipslide\\l05grind",
+    "levels\\ice\\slipslide\\l05river",
+    "levels\\ice\\slipslide\\l05roids",
+    "levels\\ice\\slipslide\\l05start",
+    "levels\\school\\boiler\\boiler_1",
+    "levels\\school\\boiler\\boiler_2",
+    "levels\\school\\boiler\\boiler_3",
+    "levels\\school\\boiler\\boiler_4",
+    "levels\\school\\boiler\\boiler_5",
+    "levels\\school\\boiler\\boiler_6",
+    "levels\\school\\boiler\\boiler_x",
+    "levels\\school\\cortex\\cogpa01",
+    "levels\\school\\cortex\\cogpa02",
+    "levels\\school\\cortex\\cogpa03",
+    "levels\\school\\cortex\\cogpa04",
+    "levels\\school\\cortex\\cogpa05",
+    "levels\\school\\cortex\\cogpa06",
+    "levels\\school\\cortex\\cogpa07",
+    "levels\\school\\cortex\\cogpa08",
+    "levels\\school\\crash\\crashent",
+    "levels\\school\\crash\\crgpa01",
+    "levels\\school\\crash\\crgpa02",
+    "levels\\school\\crash\\crgpa03",
+    "levels\\school\\crash\\crgpa04",
+    "levels\\school\\crash\\crgpa05",
+    "levels\\school\\crash\\crgpa06",
+    "levels\\school\\crash\\crgpa07",
+    "levels\\school\\crash\\crgpa08",
+    "levels\\school\\crash\\crlib",
+    "levels\\school\\madame\\ambercor",
+    "levels\\school\\madame\\amberly",
+    "levels\\school\\rooftop\\buschase",
+    "levels\\school\\rooftop\\roof01",
+    "levels\\school\\rooftop\\roof02",
+    "levels\\school\\rooftop\\roof03",
+    "levels\\school\\rooftop\\roof04",
+    "levels\\school\\rooftop\\roof05",
+    "levels\\school\\rooftop\\roofcor1",
+    "levels\\school\\rooftop\\roofcor2",
+    "levels\\school\\sch_hub\\boil2lck",
+    "levels\\school\\sch_hub\\sch_hub",
+    "levels\\school\\sch_hub\\schship",
+    "levels\\school\\sch_hub\\slk01",
+    "custom"
+];
+
 const gemLabels = ["Crystal", "Yellow Gem", "Red Gem", "Purple Gem", "Green Gem", "Clear Gem", "Blue Gem"];
 const gemKeys = ["crystal", "yellow", "red", "purple", "green", "clear", "blue"];
 
@@ -118,6 +251,18 @@ populateSelect(highestStage, stages);
 populateSelect(percentage, percentages);
 populateSelect(collabMove, collabMoves);
 populateSelect(characterState, characterStates);
+
+const chunkPathSelect = document.getElementById("chunkPath");
+const chunkPathCustom = document.getElementById("chunkPathCustom");
+populateSelect(chunkPathSelect, listOfChunks);
+
+chunkPathSelect.addEventListener("change", () => {
+    const isCustom = chunkPathSelect.value === "custom";
+    chunkPathCustom.hidden = !isCustom;
+    if (isCustom) {
+        chunkPathCustom.focus();
+    }
+});
 
 levelNames.forEach(name => {
     const div = document.createElement("div");
@@ -324,6 +469,7 @@ const fieldMap = {
     currentStage: (s, v) => { s.stageData.id = clamp(Number(v), 0, stages.length - 1); },
     highestStage: (s, v) => { s.stageData.highestid = clamp(Number(v), 0, stages.length - 1); },
     chunkPath: (s, v) => { s.chunkPath = v; },
+    chunkPathCustom: (s, v) => { s.chunkPath = v; },
     spawnId: (s, v) => { s.spawnId = clamp(Number(v) || 0, -1, 32767); },
     timePlayed: (s, v) => { s.timePlayed = Math.max(0, Number(v) || 0); },
     character: (s, v) => { s.character.current = Number(v); },
@@ -449,7 +595,15 @@ function applySaveToUI(save) {
 
     timePlayed.value = save.timePlayed;
     updateFormattedTime(save.timePlayed);
-    chunkPath.value = save.chunkPath;
+    const matchIdx = listOfChunks.indexOf(save.chunkPath);
+    if (matchIdx !== -1) {
+        chunkPathSelect.selectedIndex = matchIdx;
+        chunkPathCustom.hidden = true;
+    } else {
+        chunkPathSelect.value = "custom";
+        chunkPathCustom.hidden = false;
+        chunkPathCustom.value = save.chunkPath;
+    }
     spawnId.value = save.spawnId;
 
     screenOffsetX.value = save.options.screenOffsetX;
@@ -498,7 +652,7 @@ function readUI(save) {
 
     save.timePlayed = Math.max(0, Number(timePlayed.value) || 0);
 
-    save.chunkPath = chunkPath.value;
+    save.chunkPath = chunkPathSelect.value === "custom" ? chunkPathCustom.value : chunkPathSelect.value;
     save.spawnId = clamp(Number(spawnId.value) || 0, -1, 32767);
 
     save.options.screenOffsetX = Number(screenOffsetX.value);
@@ -563,12 +717,12 @@ function updateSlotUI() {
         card.classList.toggle("selected", selectedBanks[i]);
 
         const exportBtn = card.querySelector(".slot-export");
-        const resetBtn = card.querySelector(".slot-reset");
         const removeBtn = card.querySelector(".slot-remove");
+        const copyBtn = card.querySelector(".slot-copy");
 
         const hasData = saves[i] && !emptySlots[i];
         exportBtn.disabled = !hasData;
-        resetBtn.disabled = !hasData;
+        copyBtn.disabled = i === activeSlot || !saves[activeSlot] || emptySlots[activeSlot];
 
         card.classList.remove("loaded", "empty", "empty-slot");
 
@@ -629,6 +783,9 @@ slotCards.forEach(card => {
         e.preventDefault();
         e.stopPropagation();
         card.classList.remove("dragover");
+        slotCards.forEach(c => c.classList.remove("drop-target"));
+        document.body.classList.remove("dragging-files");
+        dragCounter = 0;
         const file = e.dataTransfer.files[0];
         if (file) {
             const slot = Number(card.dataset.slot);
@@ -660,17 +817,15 @@ document.querySelectorAll(".slot-import").forEach(btn => {
     });
 });
 
-document.querySelectorAll(".slot-reset").forEach(btn => {
+document.querySelectorAll(".slot-copy").forEach(btn => {
     btn.addEventListener("click", e => {
         e.stopPropagation();
         const slot = Number(btn.dataset.slot);
-        if (!saves[slot] && emptySlots[slot]) return;
-        saves[slot] = createBlankSave();
+        if (slot === activeSlot) return;
+        if (!saves[activeSlot]) return;
+        readUIFromTabs();
+        saves[slot] = JSON.parse(JSON.stringify(saves[activeSlot]));
         emptySlots[slot] = false;
-        if (slot === activeSlot) {
-            applySaveToUI(saves[activeSlot]);
-            renderChunksTable();
-        }
         updateSlotUI();
     });
 });
@@ -750,28 +905,45 @@ async function loadFileIntoSlot(file, slot) {
     updateSlotUI();
 }
 
-sidebar.addEventListener("dragover", e => {
-    e.preventDefault();
-    sidebar.classList.add("dragover");
+let dragCounter = 0;
+
+document.addEventListener("dragenter", e => {
+    if (!e.dataTransfer.types.includes("Files")) return;
+    dragCounter++;
+    document.body.classList.add("dragging-files");
+    slotCards.forEach(card => card.classList.add("drop-target"));
 });
 
-sidebar.addEventListener("dragleave", e => {
-    if (!sidebar.contains(e.relatedTarget)) {
-        sidebar.classList.remove("dragover");
+document.addEventListener("dragleave", () => {
+    dragCounter--;
+    if (dragCounter <= 0) {
+        dragCounter = 0;
+        document.body.classList.remove("dragging-files");
+        slotCards.forEach(card => card.classList.remove("drop-target"));
     }
+});
+
+document.addEventListener("drop", () => {
+    dragCounter = 0;
+    document.body.classList.remove("dragging-files");
+    slotCards.forEach(card => card.classList.remove("drop-target"));
 });
 
 sidebar.addEventListener("drop", async e => {
     e.preventDefault();
-    sidebar.classList.remove("dragover");
-    const files = Array.from(e.dataTransfer.files).filter(f => f.name.endsWith(".bin"));
+    const files = Array.from(e.dataTransfer.files).filter(f => f.name.endsWith(".bin")).slice(0, 4);
     if (!files.length) return;
 
+    let slot = 0;
     for (const f of files) {
-        const emptyIdx = emptySlots.indexOf(true);
-        const slot = emptyIdx !== -1 ? emptyIdx : activeSlot;
+        if (slot >= 4) break;
         await loadFileIntoSlot(f, slot);
+        slot++;
     }
+});
+
+sidebar.addEventListener("dragover", e => {
+    e.preventDefault();
 });
 
 const xboxSave = document.getElementById("xboxSave");
@@ -880,7 +1052,7 @@ function syncField(el) {
 
     if (multiEdit.checked) {
         const val = getFieldValue(el);
-        const targets = selectedBanks.map((sel, i) => (sel && i !== activeSlot) ? i : -1).filter(i => i >= 0);
+        const targets = selectedBanks.map((sel, i) => sel ? i : -1).filter(i => i >= 0);
         targets.forEach(i => {
             if (saves[i] && fieldMap[fieldId]) fieldMap[fieldId](saves[i], val);
         });

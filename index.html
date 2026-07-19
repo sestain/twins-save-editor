@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crash Twinsanity Save Editor</title>
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=12">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="slot-actions">
                             <button class="slot-btn slot-import" data-slot="0" title="Import save">&plus;</button>
-                            <button class="slot-btn slot-reset" data-slot="0" title="Reset to default">&#x21ba;</button>
+                            <button class="slot-btn slot-copy" data-slot="0" title="Copy active bank here">&#x2398;</button>
                             <button class="slot-btn slot-export" data-slot="0" title="Export save">&darr;</button>
                             <button class="slot-btn slot-remove" data-slot="0" title="Remove save">&times;</button>
                         </div>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="slot-actions">
                             <button class="slot-btn slot-import" data-slot="1" title="Import save">&plus;</button>
-                            <button class="slot-btn slot-reset" data-slot="1" title="Reset to default">&#x21ba;</button>
+                            <button class="slot-btn slot-copy" data-slot="1" title="Copy active bank here">&#x2398;</button>
                             <button class="slot-btn slot-export" data-slot="1" title="Export save">&darr;</button>
                             <button class="slot-btn slot-remove" data-slot="1" title="Remove save">&times;</button>
                         </div>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="slot-actions">
                             <button class="slot-btn slot-import" data-slot="2" title="Import save">&plus;</button>
-                            <button class="slot-btn slot-reset" data-slot="2" title="Reset to default">&#x21ba;</button>
+                            <button class="slot-btn slot-copy" data-slot="2" title="Copy active bank here">&#x2398;</button>
                             <button class="slot-btn slot-export" data-slot="2" title="Export save">&darr;</button>
                             <button class="slot-btn slot-remove" data-slot="2" title="Remove save">&times;</button>
                         </div>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="slot-actions">
                             <button class="slot-btn slot-import" data-slot="3" title="Import save">&plus;</button>
-                            <button class="slot-btn slot-reset" data-slot="3" title="Reset to default">&#x21ba;</button>
+                            <button class="slot-btn slot-copy" data-slot="3" title="Copy active bank here">&#x2398;</button>
                             <button class="slot-btn slot-export" data-slot="3" title="Export save">&darr;</button>
                             <button class="slot-btn slot-remove" data-slot="3" title="Remove save">&times;</button>
                         </div>
@@ -81,12 +81,12 @@
 
             <div class="sidebar-section">
                 <label class="multi-edit-toggle">
-                    <input type="checkbox" id="multiEdit">
+                    <input type="checkbox" id="multiEdit" autocomplete="off">
                     <span>Multi-Edit</span>
                     <small>Propagate changes to selected banks</small>
                 </label>
                 <label class="multi-edit-toggle">
-                    <input type="checkbox" id="xboxSave">
+                    <input type="checkbox" id="xboxSave" autocomplete="off">
                     <span>Xbox Save</span>
                     <small>Enables Xbox signature header</small>
                 </label>
@@ -97,7 +97,7 @@
             </div>
 
             <div class="sidebar-drop-hint" id="sidebarDropHint">
-                Drop .bin files here to load
+                Drop multiple .bin files here to import
             </div>
         </aside>
 
@@ -124,7 +124,8 @@
 
                         <div>
                             <label>Chunk Path</label>
-                            <input type="text" id="chunkPath" value="levels\earth\hub\beach">
+                            <select id="chunkPath"></select>
+                            <input type="text" id="chunkPathCustom" placeholder="Enter path..." hidden>
 
                             <label>Spawn ID</label>
                             <input type="number" value="0" id="spawnId">
@@ -258,7 +259,7 @@
     <script src="js/writer.js"></script>
     <script src="js/checksum.js"></script>
     <script src="js/metadata-writer.js"></script>
-    <script src="js/app.js?v=7"></script>
+    <script src="js/app.js?v=12"></script>
 </body>
 
 </html>

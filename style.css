@@ -12,7 +12,7 @@
     --radius: 8px;
     --radius-lg: 12px;
     --shadow: 0 1px 3px rgba(0,0,0,.4);
-    --sidebar-width: 280px;
+    --sidebar-width: 320px;
 }
 
 * {
@@ -126,6 +126,33 @@ h1 {
     background: rgba(255, 180, 0, .1);
 }
 
+.slot-card.drop-target {
+    border-style: dashed;
+    border-color: var(--text-3);
+}
+
+.slot-card.drop-target .slot-name {
+    display: none;
+}
+
+.slot-card.drop-target .slot-status {
+    overflow: visible;
+    white-space: normal;
+    color: var(--accent) !important;
+    font-style: normal !important;
+}
+
+.slot-card.drop-target .slot-status::after {
+    content: "Drop here";
+    display: block;
+    font-size: 10px;
+    margin-top: 1px;
+}
+
+body.dragging-files .sidebar-drop-hint {
+    display: block;
+}
+
 .slot-info {
     flex: 1;
     min-width: 0;
@@ -210,9 +237,9 @@ h1 {
     border-color: #22c55e;
 }
 
-.slot-reset:hover {
-    background: var(--text-3);
-    border-color: var(--text-3);
+.slot-copy:hover {
+    background: #3b82f6;
+    border-color: #3b82f6;
 }
 
 .slot-remove:hover {
